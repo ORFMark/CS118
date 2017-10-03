@@ -52,9 +52,11 @@ posFinder(userList, 10)
 posFinder(userList, 31)
 posFinder(userList, 93)
 
-##This will take an input string and say how many times a word has been repeated, and does not run
+##This will take an input string and say how many times a word has been repeated, and does
 print("\n4\n") 
 def repeatCheck(string):
+    """Takes a string and returns the number of times a word is repeated"""
+    #begin init of function variables
     stringLower=string.lower()
     stringList=list(stringLower)
     stringList.insert(0,' ')
@@ -64,38 +66,44 @@ def repeatCheck(string):
     charList=[]
     repeat=0
    #print(stringList)
-    """Takes a string and returns the number of times a word is repeated"""
-    for m in range (0, len(stringList)):
+    #end variable create
+    for m in range (0, len(stringList)): #finds and notes all the spaces
         if stringList[m]==' ':
             spaceList.append(m)
     t=len(spaceList)
   #  print(t,spaceList)
     for i in range(0,t):
-        start=spaceList[0]
+        start=spaceList[0] ##uses the spaces to find words and add them to a list
         if len(spaceList) != 1:
             end=spaceList[1]
         else:
             end=None
         charList=stringList[start+1:end]
      #   print(charList)
-        for m in charList:
+        for m in charList: ##removes non alpha-numeric characters
             if m.isalpha() == False:
                 charList.remove(m)
-                print("removing non-alphaCharacter")
+            #    print("removing non-alphaCharacter")
         spaceList.pop(0)
         wordList.append("".join(charList))
     #    print(wordList)
-    for i in wordList:
+    for i in wordList: ##determines if words are repeated
         for j in wordList:
             if i==j:
                 repeat+=1
         if repeat != 1:
      #       print(wordList)
             print("'",i,"'", " is repeated", repeat-1, "time(s), ", end="")
-            for k in range (repeat-1):
+            for k in range (repeat-1): ##removes already found words to prevent duplicates
                 wordList.remove(i)
         repeat=0
 repeatCheck(input("Please input a sentence "))
-                        
-    
-    
+#This is a program a program that will take an unknown imput of numbers and print them in ascending order
+print("\n5.\n")
+
+def numberSort(*numbList):
+    if len(numbList)==1 and type(numbList[0])==list:
+        numbList=numbList[0]
+    return sorted(numbList)
+print(numberSort(1,4,5,4,1,435,123,324,325))
+print(numberSort(userList))
