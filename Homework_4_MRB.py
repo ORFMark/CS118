@@ -1,6 +1,6 @@
 ##This is the homework for week 4, as created by Mark Burrell, and Everything Runs
 import random ##imports the liabrary that allows use of random functions
-print("HW4_MRB_9_26_17")
+print("HW4_MRB_09_26_17")
 Correct_Answers = 0
 Incorrect_Answers = 0
 questions = 0

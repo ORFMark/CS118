@@ -30,7 +30,6 @@ time.sleep(0.5);
 print("Chose 7 numbers")
 numberList=[]
 numberList.append(float(input("First number: ")))
-numberList.append(float(input("Second number: ")))
 numberList.append(float(input("Third number: ")))
 numberList.append(float(input("Forth number: ")))
 numberList.append(float(input("Fifth number: ")))

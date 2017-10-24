@@ -1,5 +1,5 @@
 #This is the 5th assignment from Mark Burrell, and who knows if anything runs
-
+print("HW5_MRB_10_03_17")
 #Problem one, which is to find the minimum value of a list, and it runs
 print("1.\n")
 def min(*inputs):
