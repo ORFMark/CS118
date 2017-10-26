@@ -1,0 +1,4 @@
+***Things I love about Python***
+easy To learn
+powerful
+concise Code
