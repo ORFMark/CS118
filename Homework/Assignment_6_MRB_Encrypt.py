@@ -9,7 +9,7 @@ while I != '': ##creates the list of lines in the file
     I=f.readline()
 f.close()
 f=open('H:\ERAU_Year_1\Fall_Semester\CS118\GitHub2\encrypted.txt','w+') #creates the file to write the encrypted infomation to
-alphaList=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'] #creaation of scramble
+alphaList=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9','0'] #creaation of scramble
 deltaList=alphaList.copy()
 keyList=[]
 cryptlist=[]
@@ -22,8 +22,12 @@ print(shuffleLine)
 for i in lineList: ##shuffles the lines
     for z in range(0,len(lineList)):
         if i == shuffleLine[z]:
-            y=str(z)
-            orderList.append(y)
+            if z>=10:
+                m="'"+str(z)+"'"
+                orderList.append(m)
+            else:
+                y=str(z)
+                orderList.append(y)
 for i in range(0,len(alphaList)): #key creation
     keyList.append(alphaList[i])
     keyList.append(deltaList[i])
@@ -31,7 +35,7 @@ for i in range(0,len(alphaList)): #key creation
 for i in range (0,len(lineList)): #scrambles the file
     text=shuffleLine[i]
     for j in range (0,len(text)):
-        if text[j].isalpha()==False:
+        if text[j].isalnum()==False:
             if text[j]!='\n':
                 cryptlist.append(text[j])
                # print("found non-alpha character: ",text[j])
