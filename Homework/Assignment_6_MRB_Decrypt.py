@@ -12,23 +12,22 @@ def posFinder(usrlist, key): ##function that will find a value in a list and ret
     if found==False:
         return None
 
-f=open('H:\ERAU_Year_1\Fall_Semester\CS118\GitHub2\Key.txt','r') ##opens and copies the key
+f=open('Key.txt','r') ##opens and copies the key
 stringKey=f.readline()
 stringKeyList=list(stringKey)
 stringKeyList.pop()
 stringKey=''.join(stringKeyList)
 lineOrder=f.readline()
 f.close()
-f=open('H:\ERAU_Year_1\Fall_Semester\CS118\GitHub2\encrypted.txt','r') #opens the scrambled file and reads it
+f=open('encrypted.txt','r') #opens the scrambled file and reads it
 i=f.readline()
 while i != '':
     scrambleLine.append(i)
     i=f.readline()
 f.close()
 lineOrder=list(lineOrder)
-f=open("H:\ERAU_Year_1\Fall_Semester\CS118\GitHub2\Decrypt.txt",'w+')
+f=open("Decrypt.txt",'w+')
 t=0
-str.isnumeric
 while t < len(lineOrder): ##puts the lines back in the right order
     print(lineOrder[t])
     if lineOrder[t].isalnum()==True:
@@ -36,9 +35,11 @@ while t < len(lineOrder): ##puts the lines back in the right order
         t=t+1
         continue
     if lineOrder[t]=="'":
-        lineTest=list(lineOrder[t+1:])
-        print(lineTest)
-        if "'" in lineTest:
+        lineTest=list(lineOrder[t:])
+        for i in range len(lineTest):
+            posList.append(posFinder(lineTest[i],"'")
+            
+        if "'" in lineTest and :
             if lineTest[0] != "'":
                 pos=posFinder(lineTest,"'")
                 multDig=lineTest[0]

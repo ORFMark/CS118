@@ -1,6 +1,6 @@
 ## This is the encryption side of assignment 6 for Mark Burrell, And who knows if it runs
 import random
-f=open("H:\ERAU_Year_1\Fall_Semester\CS118\GitHub2\Test.txt",'r') #Opens the cleartext file to read
+f=open("Test.txt",'r') #Opens the cleartext file to read
 lineList=[]
 I=f.readline()
 while I != '': ##creates the list of lines in the file
@@ -8,7 +8,7 @@ while I != '': ##creates the list of lines in the file
     print(I)
     I=f.readline()
 f.close()
-f=open('H:\ERAU_Year_1\Fall_Semester\CS118\GitHub2\encrypted.txt','w+') #creates the file to write the encrypted infomation to
+f=open('encrypted.txt','w+') #creates the file to write the encrypted infomation to
 alphaList=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9','0'] #creaation of scramble
 deltaList=alphaList.copy()
 keyList=[]
@@ -18,7 +18,6 @@ random.shuffle(alphaList)
 random.shuffle(deltaList)
 shuffleLine=lineList.copy()
 random.shuffle(shuffleLine)
-print(shuffleLine)
 for i in lineList: ##shuffles the lines
     for z in range(0,len(lineList)):
         if i == shuffleLine[z]:
@@ -52,7 +51,7 @@ for i in range (0,len(lineList)): #scrambles the file
     f.write('\n')
     cryptlist.clear()
 f.close()
-f=open('H:\ERAU_Year_1\Fall_Semester\CS118\GitHub2\Key.txt','w+') #write the key
+f=open('Key.txt','w+') #write the key
 key=''.join(keyList)
 order=''.join(orderList)
 f.write(key)
