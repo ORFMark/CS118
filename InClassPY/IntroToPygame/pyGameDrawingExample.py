@@ -13,16 +13,18 @@ size=[400,400] ##screen size for pygame drawing
 
 screen=pygame.display.set_mode(size) ##creates the screen
 
-pygame.display.set_caption("my first pygame program")##displays text on the screen
+pygame.display.set_caption("My First Pygame Program")##displays text on the screen
 
 done=False
 clock=pygame.time.Clock()
-while done==False:
+while done==False: ##Run loop of eventchecks
     clock.tick(10)
+    ##Drawing happens here----------
 
-    for event in pygame.event.get():
-        if event.type==pygame.QUIT:
+
+
+    ##Drawing Ends here------------
+    for event in pygame.event.get(): ##checks the giant list of events 
+        if event.type==pygame.QUIT: ##handles quit event
             done=True
-pygame.quit()
-        
-    
+pygame.quit()##ends pygame to make it idlefriendly
