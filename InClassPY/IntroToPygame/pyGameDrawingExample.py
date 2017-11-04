@@ -29,7 +29,8 @@ while done==False: ##Run loop of eventchecks
         y_offset+=10
     text=font.render("My Text", True,black) ##sets up the text, redraw, and the color
     screen.blit(text,[150,150])##Writes the text
-    pygame.draw.rect(screen,red,[250,250,20,40],2) #Draws a rectangle
+    rect1=pygame.draw.rect(screen,red,[250,250,20,40],2)#Draws a rectangle
+    print(rect1.getX())
     pygame.draw.ellipse(screen,blue,[150,150,40,20],3) ##Draws an ellipse
     pygame.draw.arc(screen,green,[300,300,30,30],0,pi/2,3) ## draws and arck
     pygame.draw.arc(screen,blue,[300,300,30,30],pi/2,pi,3)
