@@ -30,6 +30,16 @@ def drawHouse():
     pygame.draw.rect(screen,brown,[425,720,50,80])
     pygame.draw.rect(screen,yellow,[325,710,60,40])
     pygame.draw.rect(screen,brown,[325,710,60,40],3)
+def drawSnow(posList,size):
+    pygame.draw.circle(screen,white,posList,size)
+def snowFall():
+    global count
+    countList[i][1]=countList[i][1]+(sizeList[i]/2)
+    count=count+.004
+    pos_list[i][1]=random.randint(-20,-10)
+    sizeList[i]=random.randint(2,5)
+    vectorList[i]=random.randint(3,10)
+    wind[i]=random.randint(-2,2)
 for i in range (0,300):
     x=random.randint(1,800)
     y=random.randint(-700,0)
@@ -60,13 +70,8 @@ while done==False:
 ##                countList[i][1]=0
 ##                zero=True
         if pos_list[i][1]>800:
-            countList[i][1]=countList[i][1]+(sizeList[i]/2)
-            count=count+.004
-            pos_list[i][1]=random.randint(-20,-10)
-            sizeList[i]=random.randint(2,5)
-            vectorList[i]=random.randint(3,10)
-            wind[i]=random.randint(-2,2)
-        pygame.draw.circle(screen,white,pos_list[i],sizeList[i])
+            snowFall()
+        drawSnow(pos_list[i],sizeList[i])
         #pos_list[i][0]=pos_list[i][0]+wind[i]
         pos_list[i][1]=pos_list[i][1]+vectorList[i]
         pygame.draw.rect(screen,white,[0,800-int(count),800,int(count)])
