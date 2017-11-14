@@ -25,7 +25,7 @@ eVec=[]
 for i in range(0,25): #generates the list of enemys and their directions
     size=random.randint(3,20)
     eInfo.append([random.randint(100,700),random.randint(100,500),size,colorList[random.randint(0,len(colorList)-1)],0])
-    eVec.append([int((21-eInfo[i][2])/3),int((21-eInfo[i][2]))/3])
+    eVec.append([int((21-eInfo[i][2])/4),int((21-eInfo[i][2]))/4])
     if int((21-eInfo[i][2]%2)) != 1:
         eVec[i-1][0]=eVec[i][0]*-1
     else:
