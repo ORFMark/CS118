@@ -23,10 +23,13 @@ pvector=[0,0] #x,y
 eInfo=[]
 eVec=[]
 for i in range(0,25): #generates the list of enemys and their directions
-    size=random.randint(3,20)
+    size=random.randint(3,25)
     eInfo.append([random.randint(100,700),random.randint(100,500),size,colorList[random.randint(0,len(colorList)-1)],0])
     eVec.append([int((21-eInfo[i][2])/4),int((21-eInfo[i][2]))/4])
-    if int((21-eInfo[i][2]%2)) != 1:
+    if eVec[i-1][0]==0 or eVec[i-1][1]==0:
+        eVec[i-1][0]+=1
+        eVec[i-1][1]+=-1
+    if int((26-eInfo[i][2]%2)) != 1:
         eVec[i-1][0]=eVec[i][0]*-1
     else:
         eVec[i][1]=eVec[i][0]*-1
@@ -66,16 +69,15 @@ while done==False:
                 playerInfo[2]=playerInfo[2]+eInfo[i][2]
                 eInfo.pop(i)
                 eVec.pop(i)
+                print("You ate the enemy!")
                 break
             else:
-                pygame.quit()
                 print("you died")
                 done=True
                 break
     playerDraw(playerInfo,pvector)
     pygame.display.update()
     if eInfo==[]:
-        pygame.quit()
         done=True
         print("Congragulations, you won!")
         break
