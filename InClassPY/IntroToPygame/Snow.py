@@ -5,9 +5,9 @@ import random
 pygame.init()
 black=[0,0,0] ##colors
 red=[255,0,0]
-redLight=[250,5,0]
+redLight=[255,0,0]
 green=[0,255,0]
-greenLight=[5,250,0]
+greenLight=[0,255,0]
 blue=[0,0,255]
 white=[255,255,255]
 yellow=[255,255,0]
@@ -26,7 +26,7 @@ roofCount=0
 shedx=0
 shedy=0
 change=0
-changeDirec=1
+changeDirec=0.5
 roof=False
 lightPos=[]
 def drawHouse():
@@ -43,7 +43,7 @@ def snowFall():
     countList[i][1]=countList[i][1]+(sizeList[i]/2)
     count=count+.004
     global roofCount
-    roofCount+=0.0005
+    roofCount+=0.003
     pos_list[i][1]=random.randint(-20,-10)
     sizeList[i]=random.randint(2,5)
     vectorList[i]=random.randint(3,10)
@@ -102,7 +102,6 @@ while done==False:
         pygame.draw.rect(screen,white,[0,800-int(count),800,int(count)])
         pygame.draw.ellipse(screen,white,[countList[i][0]-30,int(800-int(countList[i][1])),(int(countList[i][1]*1.75)),int(countList[i][1])])
         drawHouse()
-        
         if roofCount <=10:
             pygame.draw.line(screen,white,[270,650],[400,575],int(roofCount))
             pygame.draw.line(screen,white,[400,575],[530,650],int(roofCount))
