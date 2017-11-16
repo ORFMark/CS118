@@ -14,6 +14,17 @@ brown=[104,94,49]
 colorList=[black,red,green,yellow,purple,lgreen,brown] #list of possible enemy colors
 size=[800,600] 
 pi=math.pi
+diff=input("What Difficulty do you want? Easy[E],Medium[M],or Hard[H]?")
+if diff=='E':
+    slider=4
+elif diff=='M':
+    slider=3
+elif diff=='H':
+    slider=2
+else:
+    print("for failing to follow directions, you are in very hard mode")
+    slider==1
+font = pygame.font.Font(None, 25)
 screen=pygame.display.set_mode(size)
 screen.fill(white)
 pygame.display.set_caption("Agrio Clone")
@@ -22,10 +33,13 @@ playerInfo=[50,50,5,blue] ##x,y,size,color
 pvector=[0,0] #x,y
 eInfo=[]
 eVec=[]
-for i in range(0,25): #generates the list of enemys and their directions
-    size=random.randint(3,25)
+enemies=25
+enemyMaxSize=20
+Count=0
+for i in range(0,enemies): #generates the list of enemys and their directions
+    size=random.randint(3,enemyMaxSize)
     eInfo.append([random.randint(100,700),random.randint(100,500),size,colorList[random.randint(0,len(colorList)-1)],0])
-    eVec.append([int((21-eInfo[i][2])/4),int((21-eInfo[i][2]))/4])
+    eVec.append([int(((enemyMaxSize+1)-eInfo[i][2])/slider),int(((enemyMaxSize+1)-eInfo[i][2]))/slider])
     if eVec[i-1][0]==0 or eVec[i-1][1]==0:
         eVec[i-1][0]+=1
         eVec[i-1][1]+=-1
@@ -53,6 +67,8 @@ done=False
 pygame.display.flip() #makes sure the display prints
 while done==False:
     clock.tick(30)
+    Time="{0:.2f}".format(Count/30)
+    text = font.render("Time:"+Time, True, black)
     screen.fill(white)
     pos=pygame.mouse.get_pos()
     pvector[0]=pos[0]-playerInfo[0] ##updates the players speed and vector
@@ -72,15 +88,19 @@ while done==False:
                 print("You ate the enemy!")
                 break
             else:
-                print("you died")
+                print("you died in",Time,"Seconds")
                 done=True
                 break
     playerDraw(playerInfo,pvector)
+    screen.blit(text,[200,20])
     pygame.display.update()
+    
     if eInfo==[]:
         done=True
-        print("Congragulations, you won!")
+        print("Congragulations, you won! You took ",Time,"Seconds")
         break
+    
+    Count+=1
     for event in pygame.event.get(): ##checks the giant list of events 
         if event.type==pygame.QUIT: ##handles quit event
             done=True
