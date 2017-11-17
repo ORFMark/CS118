@@ -12,8 +12,9 @@ blue=[0,0,255]
 white=[255,255,255]
 yellow=[255,255,0]
 purple=[255,0,255]
-green=[102,209,114]
+lgreen=[102,209,114]
 brown=[104,94,49]
+dgreen=[29,180,30]
 pi=math.pi
 size=[800,800]
 pos_list=[]
@@ -30,12 +31,13 @@ changeDirec=0.5
 roof=False
 lightPos=[]
 def drawHouse():
-    pygame.draw.rect(screen,green,[300,650,200,150])
+    pygame.draw.rect(screen,lgreen,[300,650,200,150])
     pygame.draw.rect(screen,black,[450,580,20,40])
     pygame.draw.polygon(screen,brown,[[270,650],[400,575],[530,650]])
     pygame.draw.rect(screen,brown,[425,720,50,80])
-    pygame.draw.rect(screen,yellow,[325,710,60,40])
-    pygame.draw.rect(screen,brown,[325,710,60,40],3)
+    pygame.draw.rect(screen,yellow,[325,710,70,50])
+    pygame.draw.rect(screen,brown,[325,710,70,50],3)
+    pygame.draw.circle(screen,dgreen,[450,740],15,8) 
 def drawSnow(posList,size):
     pygame.draw.circle(screen,white,posList,size)
 def snowFall():
@@ -77,8 +79,8 @@ for i in range(0,300):
     countList.append([x,0])
 for i in range (0,10):
     lightPos.append([int((270+(i*8*1.75))),int((650-i*8))])
-for i in range (0,10):
     lightPos.append([int((400+(i*8*1.75))),int((575+i*8))])
+    
     
 screen=pygame.display.set_mode(size)
 screen.fill(blue)
