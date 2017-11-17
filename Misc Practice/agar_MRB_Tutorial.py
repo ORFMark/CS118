@@ -1,4 +1,4 @@
-##This file contains examples and commented explanations of how to draw and collison check enemies per the Agrio assignment. It is meant purely as an educational example resoruce and it will be
+##This file contains examples and commented explanations of how to draw and collison check enemies per the Agrio assignment. It is meant purely as an educational example and it will be
 ##Very obvious if you just copy paste the code. I have tried to make the comments explanatory, and hopefully if you are having trouble this will help you on your way. This is based on the agar.py
 ##file Ashish sent out and as such I have not added comments to his code (The stuff that controls the player), as he has gone over this in great detail in class. -MRB,11-17-2017
 import pygame
