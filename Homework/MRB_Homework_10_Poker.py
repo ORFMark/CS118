@@ -38,6 +38,7 @@ def draw_cards(num_of_cards, list_dealt=[]): ##Edited Ashish's function so that 
     return list_dealt
 play=True
 while play==True:
+    valid=False
     mydraw=[]
     mydraw=draw_cards(3,mydraw)
     hand=sorted(mydraw)
@@ -57,10 +58,18 @@ while play==True:
         print("You got a straight!")
     else:
         print("You got a bad hand. :(")
-    z=input("Do you want to play again?[Y/N] ")
-    if z=='Y' or z=='y':
-        play=True
-    if z=='N' or z=='n':
-        print("thanks for playing, please come again")
-        play=False
+    while valid==False:
+        z=input("Do you want to play again?[Y/N] ")
+        if z=='Y' or z=='y':
+            play=True
+            valid=True
+        if z=='N' or z=='n':
+            print("thanks for playing, please come again")
+            play=False
+            valid=True
+        else:
+            print("Please enter Y,y,N, or n")
+            valid=False
+            
+    
         
