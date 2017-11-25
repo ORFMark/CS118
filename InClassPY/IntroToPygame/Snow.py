@@ -15,10 +15,14 @@ purple=[255,0,255]
 lgreen=[102,209,114]
 brown=[104,94,49]
 dgreen=[29,180,30]
+gray=[153,153,153]
 pi=math.pi
-size=[800,800]
+
 pos_list=[]
 vectorList=[]
+smV=[]
+smP=[]
+smSize=[]
 wind=[]
 sizeList=[]
 countList=[]
@@ -29,6 +33,25 @@ shedy=0
 change=0
 changeDirec=0.5
 roof=False
+smokeList=[]
+for i in range(0,random.randint(15,20)):
+    smokeList.append([[470+random.randint(-20,20),570+random.randint(-10,10)],random.randint(5,15)])
+for i in range(0,50):
+    x=random.randint(450,490)
+    y=random.randint(560,580)
+    rise=random.randint(-3,-1)
+    size=random.randint(5,10)
+    smP.append([x,y])
+    smV.append(rise)
+    smSize.append(size)
+size=[800,800]
+def smoke(pos,rise,size):
+    pos[1]=pos[1]+rise
+    pos[0]=pos[0]+random.randint(1,2)
+    if pos[1]<0:
+        pos[1]=random.randint(560,580)
+        pos[0]=random.randint(450,490)
+    pygame.draw.circle(screen,gray,pos,size)
 lightPos=[]
 def drawHouse():
     pygame.draw.rect(screen,lgreen,[300,650,200,150])
@@ -37,7 +60,7 @@ def drawHouse():
     pygame.draw.rect(screen,brown,[425,720,50,80])
     pygame.draw.rect(screen,yellow,[325,710,70,50])
     pygame.draw.rect(screen,brown,[325,710,70,50],3)
-    pygame.draw.circle(screen,dgreen,[450,740],15,8) 
+    pygame.draw.circle(screen,dgreen,[450,740],15,8)
 def drawSnow(posList,size):
     pygame.draw.circle(screen,white,posList,size)
 def snowFall():
@@ -95,6 +118,8 @@ zero=False
 while done==False:
     clock.tick(30)
     screen.fill(blue)
+    for i in range (0,len(smP)):
+            smoke(smP[i],smV[i],smSize[i])
     for i in range (len(pos_list)):
         if pos_list[i][1]>800:
             snowFall()
