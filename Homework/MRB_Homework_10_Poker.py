@@ -63,7 +63,7 @@ while play==True:
         if z=='Y' or z=='y':
             play=True
             valid=True
-        if z=='N' or z=='n':
+        elif z=='N' or z=='n':
             print("thanks for playing, please come again")
             play=False
             valid=True
