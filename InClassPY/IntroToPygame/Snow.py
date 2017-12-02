@@ -17,7 +17,8 @@ brown=[104,94,49]
 dgreen=[29,180,30]
 gray=[153,153,153]
 pi=math.pi
-
+font=pygame.font.Font(None, 50)
+text = font.render("Happy Holidays!", True, red)
 pos_list=[]
 vectorList=[]
 smV=[]
@@ -51,6 +52,7 @@ def smoke(pos,rise,size):
     if pos[1]<0:
         pos[1]=random.randint(560,580)
         pos[0]=random.randint(450,490)
+        rise=random.randint(-3,-1)
     pygame.draw.circle(screen,gray,pos,size)
 lightPos=[]
 def drawHouse():
@@ -151,6 +153,7 @@ while done==False:
             lightDraw(redLight,lightPos[i])
         else:
             lightDraw(greenLight,lightPos[i])
+    screen.blit(text,[275,100])
     pygame.display.flip()
     for event in pygame.event.get(): ##checks the giant list of events 
         if event.type==pygame.QUIT: ##handles quit event
