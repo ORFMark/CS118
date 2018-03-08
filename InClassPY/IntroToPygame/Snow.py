@@ -17,8 +17,8 @@ brown=[104,94,49]
 dgreen=[29,180,30]
 gray=[153,153,153]
 pi=math.pi
-font=pygame.font.Font(None, 50)
-text = font.render("Happy Holidays!", True, red)
+font=pygame.font.Font (None, 50)
+text = font.render("Happy Holidays", True, red)
 pos_list=[]
 vectorList=[]
 smV=[]
@@ -33,7 +33,7 @@ shedx=0
 shedy=0
 change=0
 changeDirec=0.5
-roof=False
+roof=False 
 smokeList=[]
 for i in range(0,random.randint(15,20)):
     smokeList.append([[470+random.randint(-20,20),570+random.randint(-10,10)],random.randint(5,15)])

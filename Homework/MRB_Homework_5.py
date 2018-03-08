@@ -21,12 +21,11 @@ def box(height, width):
     for i in range(0,width):
         sideList.append('*')
     side="".join(sideList)
-    for i in range(0,height):
+    for i in range (0,height):
         print(side)
 box(7,5)
 print()
 box(3,2)
-print()
 box(3,10)
 
 #problem 3, this is to print the location of a number in a random list, and runs
